@@ -16,10 +16,10 @@ const Graficas = () => {
     datasets: [
       {
         label: "Ventas por dia",
-        data: [1, 2, 3, 4, 5, 6, 7],
+        data: [1, 2, 3, 4, 5, 12, 7],
         backgroundColor: [
-          "rgba(75,192,192,0.6)", // Este es para lunes
-          "rgba(100,19,172,0.6)", // Este es para martes
+          "rgba(75,192,192,0.12 col-md-6)", // Este es para lunes
+          "rgba(100,19,172,0.12 col-md-6)", // Este es para martes
           "rgba(75,192,19,0.2)", // Este es para miercoles
           "rgba(75,92,92,0.9)", // Este es para jueves
           "aliceblue", // Este es para viernes
@@ -93,7 +93,7 @@ const Graficas = () => {
     <>
       <h1>Diagrama</h1>
       <div className="row">
-        <div className="col-6">
+        <div className="col-12 col-md-6">
           <Doughnut
             key={JSON.stringify(charData.datasets[0].data)}
             data={charData}
@@ -102,7 +102,7 @@ const Graficas = () => {
             }}
           />
         </div>
-        <div className="col-6">
+        <div className="col-12 col-md-6">
           <Bar
             key={JSON.stringify(charData.datasets[0].data)}
             data={charData}
@@ -113,7 +113,7 @@ const Graficas = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col-6">
+        <div className="col-12 col-md-6">
           <Radar
             key={JSON.stringify(charData.datasets[0].data)}
             data={charData}
@@ -122,7 +122,7 @@ const Graficas = () => {
             }}
           />
         </div>
-        <div className="col-6">
+        <div className="col-12 col-md-6">
           <Pie
             key={JSON.stringify(charData.datasets[0].data)}
             data={charData}
