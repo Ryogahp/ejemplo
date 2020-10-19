@@ -7,13 +7,13 @@ import "leaflet/dist/leaflet.css";
 const MapEnVivo = () => {
   return (
     <>
-          <Map center={{ lat: "-16.5285372", lng: "-62.5942999" }} zoom={6}>
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            />
-            <Marhers />
-          </Map>
+      <Map center={{ lat: "-16.5285372", lng: "-62.5942999" }} zoom={7} className="container" scrollWheelZoom={false} dragging={false} touchZoom={true} doubleClickZoom={true}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <Marhers />
+      </Map>
     </>
   );
 };

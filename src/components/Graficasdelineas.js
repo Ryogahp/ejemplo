@@ -19,19 +19,20 @@ const Graficas = () => {
         label: "Ventas por dia",
         data: [1, 2, 3, 4, 5, 12, 7],
         backgroundColor: [
-          "rgba(75,192,192,0.12)", 
-          "rgba(100,19,172,0.12)", 
-          "rgba(75,192,19,0.2)", 
-          "rgba(75,92,92,0.9)", 
-          "aliceblue", 
-          "yellow", 
+          "rgba(75,192,192,0.12)",
+          "rgba(100,19,172,0.12)",
+          "rgba(75,192,19,0.2)",
+          "rgba(75,92,92,0.9)",
+          "aliceblue",
+          "yellow",
           "green",
         ],
       },
     ],
   });
 
-  const cambiarDatos = () => {
+  const cambiarDatos = (e) => {
+    console.log(e);
     let nuevo = [];
     document
       .getElementById("inputfile")
@@ -40,39 +41,27 @@ const Graficas = () => {
 
         fr.onload = function () {
           document.getElementById("output").textContent = fr.result;
-          console.log(fr.result.split(","));
+          //console.log(fr.result.split(","));
           var arrStr = fr.result.split(",");
-          nuevo=arrStr.map((i) => Number(i));
-          console.log(nuevo);
-          // repeti para cambiar los datos de la grafica
+          nuevo = arrStr.map((i) => Number(i));
+          //console.log(nuevo);
+
           const objectoNuevo = {
-            ...charData, 
+            ...charData,
             datasets: merge(charData.datasets, [
               {
                 data: nuevo, //
               },
             ]),
           };
-      
+
           setCharData(objectoNuevo);
-          
         };
-        
+
         fr.readAsText(this.files[0]);
       });
-
-    const objectoNuevo = {
-      ...charData, 
-      datasets: merge(charData.datasets, [
-        {
-          data: nuevo, //
-        },
-      ]),
-    };
-
-    setCharData(objectoNuevo);
   };
-  
+
   return (
     <>
       <h1>Diagrama</h1>
@@ -116,7 +105,8 @@ const Graficas = () => {
           />
         </div>
       </div>
-      <div>
+      <div className="row">
+        <div className="col">
         <Form.File
           type="file"
           name="inputfile"
@@ -125,6 +115,7 @@ const Graficas = () => {
         />
         <br />
         <pre id="output"></pre>
+        </div>
       </div>
     </>
   );
